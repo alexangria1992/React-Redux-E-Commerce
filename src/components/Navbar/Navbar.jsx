@@ -1,26 +1,15 @@
 import React from "react";
 import { HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 import "./Navbar.css";
+import BrandLink from "../BrandLink/BrandLink";
+import NavLinks from "../NavLinks";
+
 const Navbar = () => {
   return (
     <nav className=" container mx-auto flex font-krona bg-red-300 justify-between p-3">
-      {/* BRAND */}
-      {/* TODO extract to a component */}
-      <a href="/" className="text-2xl">
-        Wavey
-      </a>
-
-      <div className="flex bg-green-300 items-end lowercase">
-        <a href="/home" className="text-sm mr-8 ">
-          Home
-        </a>
-        <a href="/search" className="text-sm mr-8 ">
-          Search
-        </a>
-        <a href="/about" className="text-sm mr-8 ">
-          About
-        </a>
-
+      <BrandLink classes="text-yellow" />
+      <div className="flex bg-green-300 items-end ">
+        <NavLinks />
         {/* ICONS  */}
         {/* TODO: add colors to icons {text-dark} */}
         <div className="flex bg-purple-300">
