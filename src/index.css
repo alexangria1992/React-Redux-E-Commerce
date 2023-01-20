@@ -4,5 +4,5 @@
 
 body {
   /* font-family: "Krona One", sans-serif; */
-  @apply font-base text-dark bg-light-grey;
+  @apply font-base text-yellow bg-light-grey;
 }
