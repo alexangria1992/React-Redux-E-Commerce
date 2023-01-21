@@ -1,9 +1,11 @@
 import React from "react";
-import ButtonLink from "../../ButtonLink/ButtonLink";
 import bannerImg from "./banner.png";
+import ButtonLink from "../ButtonLink";
+import "./SecondaryBanner.css";
+
 const SecondaryBanner = () => {
   return (
-    <div className="container flex justify-between items-center mx-auto px-20 bg-blue-500 w-full  ">
+    <div className="banner__secondary container flex justify-between items-center mx-auto px-20 bg-blue-500 w-full  ">
       <div className=" bg-lime-200">
         <h3 className="font-krona mb-4">
           Be Natural, <br /> be smart, <br /> be you <br />

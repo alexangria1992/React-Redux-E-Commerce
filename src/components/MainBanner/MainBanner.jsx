@@ -1,6 +1,6 @@
 import React from "react";
 import bannerImg from "./banner.png";
-import ButtonLink from "../../ButtonLink/ButtonLink";
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 const MainBanner = () => {
   return (

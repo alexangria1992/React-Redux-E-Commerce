@@ -10,7 +10,7 @@ const Footer = () => {
       </a>
       <div className="bg-emerald-300 flex items-center">
         {links.map((link) => (
-          <a href="/" className="ml-4">
+          <a href="/" key={link} className="ml-4">
             {link}
           </a>
         ))}
