@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SectionTitle from "../SectionTitle";
 import ButtonLink from "../ButtonLink";
 import SecondaryBanner from "../SecondaryBanner/SecondaryBanner";
+import useGetProducts from "../../hooks/useGetProducts";
+import Product from "../Product";
 
 const TopProducts = () => {
+  const { products, getTopProducts } = useGetProducts();
+
+  useEffect(() => {
+    getTopProducts();
+  });
+
   return (
     <div>
       <div className="container mx-auto">
-        <div className="flex bg-blue-200 items-center justify-between">
+        <div className="flex bg-blue-200 items-center justify-between mb-6">
           <SectionTitle text="Top Products" />
-          <ButtonLink path="/about" text="see more" />
+          <ButtonLink isMain path="/about" text="see more" />
         </div>
-        <div className="h-80 bg-orange-400"></div>
+        <div className=" bg-orange-400  flex flex-wrap justify-center">
+          {products.map((product) => (
+            <Product
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              brand={product.brand}
+              imgUrl={product.api_featured_image}
+              price={product.price}
+              currency={product.price_sign}
+            />
+          ))}
+        </div>
       </div>
       <SecondaryBanner />
     </div>
