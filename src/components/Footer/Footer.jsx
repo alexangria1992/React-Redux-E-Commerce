@@ -19,7 +19,7 @@ const Footer = () => {
               {item.links.map((link) => (
                 <Link
                   to={link.path}
-                  key={link}
+                  key={link.name}
                   className="lowercase text-sm block hover:text-yellow"
                 >
                   {link.name}

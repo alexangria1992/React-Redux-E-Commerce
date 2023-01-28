@@ -1,40 +1,66 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import useGetProducts from "../hooks/useGetProducts";
+import ProductPrice from "../components/ProductPrice";
+import ProductTitle from "../components/ProductTitle";
 
 const Product = () => {
-  const { id } = useParams();
-
-  const { singleProduct, getSingleProduct } = useGetProducts();
-
-  useEffect(() => {
-    getSingleProduct(id);
-  }, []);
+  const { singleProduct } = useGetProducts();
 
   if (!singleProduct) return <p>Loading...</p>;
 
   return (
-    <div>
-      {/* TITLE */}
-      <p>{singleProduct.name}</p>
-      <p>{singleProduct.product_type}</p>
+    <div className="mt-20 container mx-auto h-screen">
+      <ProductTitle
+        name={singleProduct.name}
+        type={singleProduct.product_type}
+      />
 
       {/* IMG */}
-      <img
-        width="120"
-        src={`https://${singleProduct.api_featured_image}`}
-        alt={singleProduct.name}
-      />
-      {/* CATEGORY */}
-      <p>{singleProduct.category}</p>
-      {/* PRICE*/}
-      <br />
-      <p>{singleProduct.price}</p>
+      <div className="flex mb-10 ">
+        <div className=" flex  items-center justify-center w-screen p-10">
+          <img
+            src={`https://${singleProduct.api_featured_image}`}
+            alt={singleProduct.name}
+          />
+        </div>
 
-      {/* Description  */}
-      <p>{singleProduct.description.replace(/<\/?[^>]+(>|$)/g, "")}></p>
+        <div>
+          <p className="text-yellow text-sm font-krona">
+            {singleProduct.product_type}
+          </p>
+
+          <h1 className="font-krona text-base ">{singleProduct.name}</h1>
+          <p>{singleProduct.category}</p>
+          {/* PRICE*/}
+          <div className="flex my-10 justify-between">
+            <ProductPrice price={singleProduct.price} isLarge />
+
+            <button className="inline-block py-3  bg-yellow rounded-full font-bold font-krona text-xs px-6">
+              add to basket
+            </button>
+          </div>
+          {/* Description  */}
+          <p>{singleProduct.description.replace(/<\/?[^>]+(>|$)/g, "")}></p>
+        </div>
+      </div>
 
       {/* FOR YOU PRODUCTS */}
+      {/* <div className="flex flex-wrap justify-center">
+        {singleProduct.recommended ? (
+          singleProduct.recommended.map((product) => (
+            <Product
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              brand={product.brand}
+              imgUrl={product.api_featured_image}
+              price={product.price}
+            />
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div> */}
     </div>
   );
 };
