@@ -6,7 +6,7 @@ import { useCallback } from "react";
 const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
 //"http://makeup-api.herokuapp.com/api/v1/products/114.json";
 
-const useGetProducts = () => {
+const useGetProduct = () => {
   const { id } = useParams();
 
   const [singleProduct, setSingleProduct] = useState(null);
@@ -19,15 +19,14 @@ const useGetProducts = () => {
   }, [id]);
 
   useEffect(() => {
-    if (!singleProduct) {
-      getSingleProduct();
-    }
-  }, [singleProduct, getSingleProduct]);
+    // if (!singleProduct) {
+    getSingleProduct();
+    // }
+  }, [id, getSingleProduct]);
 
   return {
-    getSingleProduct,
     singleProduct,
   };
 };
 
-export default useGetProducts;
+export default useGetProduct;

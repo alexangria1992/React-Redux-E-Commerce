@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import useGetProduct from "../hooks/useGetProduct";
 import ProductPrice from "../components/ProductPrice";
 import ProductTitle from "../components/ProductTitle";
 import RecommendedProducts from "../components/RecommendedProducts";
+import { useLocation } from "react-router-dom";
+import Benefits from "../components/Benefits/Benefits";
 
 const Product = () => {
+  const location = useLocation();
   const { singleProduct } = useGetProduct();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   if (!singleProduct) return <p>Loading...</p>;
 
   return (
-    <div className="mt-20 container mx-auto h-screen">
+    <div className="mt-20 container mx-auto ">
       <ProductTitle
         name={singleProduct.name}
         type={singleProduct.product_type}
       />
 
       {/* IMG */}
-      <div className="flex mb-10 ">
+      <div className="flex mb-20 ">
         <div className=" flex  items-center justify-center w-screen p-10">
           <img
             src={`https://${singleProduct.api_featured_image}`}
@@ -46,6 +53,8 @@ const Product = () => {
       </div>
 
       {/* FOR YOU PRODUCTS */}
+      <Benefits />
+
       <RecommendedProducts product={singleProduct} />
       {/* <div className="flex flex-wrap justify-center">
         {singleProduct.recommended ? (

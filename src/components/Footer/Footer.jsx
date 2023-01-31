@@ -8,14 +8,14 @@ import TwitterIcon from "../../Icons/TwitterIcon";
 import InstagramIcon from "../../Icons/InstagramIcon";
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light flex flex-col md:flex-row p-8 justify-between ">
-      <BrandLink classes="text-yellow mb-4 md:md-0 md:pl-4 inline-block order-1" />
+    <footer className="bg-dark text-light flex justify-between p-8">
+      <BrandLink classes="text-yellow pl-4 inline-block" />
 
-      <div className="bg-emerald-300 flex justify-between mx-auto">
+      <div className="flex justify-between mx-auto">
         {links.map((item) => (
-          <div className=" flex flex-col flex-wrap mr-10">
+          <div className="flex flex-col flex-wrap mr-10">
             <h6 className="font-krona text-sm">{item.title}</h6>
-            <div className="bg-red-200">
+            <div>
               {item.links.map((link) => (
                 <Link
                   to={link.path}
