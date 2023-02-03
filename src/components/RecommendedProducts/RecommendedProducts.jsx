@@ -9,6 +9,7 @@ const RecommendedProducts = ({ product }) => {
   if (products.length === 0) return null;
   return (
     <>
+      {/* TODO: Handle loading state */}
       <SectionTitle text=" For you" />
       <div className="flex flex-wrap justify-center">
         {products.map((item) => (

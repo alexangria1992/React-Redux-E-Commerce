@@ -20,8 +20,11 @@ const Product = () => {
     <div className="mt-20 container mx-auto ">
       <ProductTitle
         name={singleProduct.name}
-        type={singleProduct.product_type}
+        type={singleProduct.product_type.replace(/_/g, " ")}
       />
+      {/* TODO: check if columns make sense for a better img display */}
+
+      {/* TODO: split to smaller components */}
 
       {/* IMG */}
       <div className="flex mb-20 ">
@@ -34,11 +37,11 @@ const Product = () => {
 
         <div>
           <p className="text-yellow text-sm font-krona">
-            {singleProduct.product_type}
+            {singleProduct.product_type.replace(/_/g, " ")}
           </p>
 
           <h1 className="font-krona text-base ">{singleProduct.name}</h1>
-          <p>{singleProduct.category}</p>
+          {/* <p>{singleProduct.category}</p> */}
           {/* PRICE*/}
           <div className="flex my-10 justify-between">
             <ProductPrice price={singleProduct.price} isLarge />

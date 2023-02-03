@@ -16,7 +16,10 @@ const ProductCard = ({ id, name, brand, imgUrl, price }) => (
       />
     </div>
     <div>
-      <p className="text-yellow font-krona text-sm lowercase"> {name}</p>
+      <p className="text-yellow font-krona text-sm lowercase">
+        {" "}
+        {name.replace(/^(.{12}[^\s]*).*/, "$1")}
+      </p>
       <p className="mb-4"> {brand}</p>
       <ProductPrice price={price} />
     </div>

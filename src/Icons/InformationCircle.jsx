@@ -8,7 +8,7 @@ const InformationCircle = () => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="w-10 h-10 mt-4"
+      className="w-6 h-6 mt-4"
     >
       <path
         strokeLinecap="round"
