@@ -4,8 +4,11 @@ import ButtonLink from "../ButtonLink/ButtonLink";
 
 const MainBanner = () => {
   return (
-    <div className="flex container mx-auto bg-lime-200 items-center mt-20 mb-10">
-      <div className="bg-teal-200 ">
+    <div
+      className="container mx-auto flex flex-col-reverse md:flex-row  bg-lime-200 items-center mt-20 mb-10 md:mt-20
+    "
+    >
+      <div className="bg-teal-200">
         <h1 className="font-krona text-3xl md:text-5xl mb-4 md:mb-10">
           The Makeup e-commerce project
         </h1>
@@ -21,7 +24,7 @@ const MainBanner = () => {
         </p>
         <ButtonLink path="/about" text="see more" isMain />
       </div>
-      <div className="ml-4">
+      <div className=" ml-0 md:ml-4 mb-4 md:mb-0">
         <img
           src={bannerImg}
           alt="Tooth brush and a paste laying on top of a green leaf"

@@ -8,12 +8,15 @@ import TwitterIcon from "../../Icons/TwitterIcon";
 import InstagramIcon from "../../Icons/InstagramIcon";
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light flex justify-between p-8">
-      <BrandLink classes="text-yellow pl-4 inline-block" />
+    <footer className="bg-dark text-light flex flex-col md:flex-row justify-between p-8">
+      <BrandLink classes="text-yellow md:pl-4 mb-4 md:pl-4 md:mb-0 inline-block order-1" />
 
-      <div className="flex justify-between mx-auto">
+      <div
+        className="flex flex-col md:flex-row justify-between md:mx-auto space-x-0  space-y-8 md md:space-x-8 md:space-y-0 
+       order-3 md:order-2"
+      >
         {links.map((item) => (
-          <div className="flex flex-col flex-wrap mr-10">
+          <div className="flex flex-col flex-wrap">
             <h6 className="font-krona text-sm">{item.title}</h6>
             <div>
               {item.links.map((link) => (
@@ -30,7 +33,7 @@ const Footer = () => {
         ))}
       </div>
 
-      <div className="text-yellow pr-4">
+      <div className="text-yellow space-x-4 order-2 flex md:block md:order-3 md:space-x-0 mb-6 md:mb-0">
         <a
           href="https://facebook.com"
           target="_blank"

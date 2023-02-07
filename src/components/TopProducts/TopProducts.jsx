@@ -9,11 +9,16 @@ const TopProducts = () => {
   const products = useGetTopProducts();
 
   return (
-    <div>
-      <div className="container mx-auto">
+    <div className="md:mt-20">
+      <div className="container mx-auto -mb-10">
         <div className="flex bg-blue-200 items-center justify-between mb-6">
           <SectionTitle text="Top Products" />
-          <ButtonLink isMain path="/about" text="see more" />
+          <ButtonLink
+            isMain
+            path="/about"
+            text="see more"
+            className="hidden md:block"
+          />
         </div>
         <div className=" bg-orange-400  flex flex-wrap justify-center">
           {products.map((product) => (

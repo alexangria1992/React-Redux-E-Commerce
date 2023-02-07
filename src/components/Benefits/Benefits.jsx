@@ -17,7 +17,10 @@ const benefits = [
 ];
 const Benefits = () => {
   return (
-    <div className="flex container  mx-auto mb-6">
+    <div
+      className="flex container flex-col md:flex-row mx-auto mb-20 space-y-8 
+    md:space-y-0 md:space-x-8 sm:w-3/4  md:w-full"
+    >
       {benefits.map((item) => (
         <BenefitsItem key={item.title} item={item} />
       ))}

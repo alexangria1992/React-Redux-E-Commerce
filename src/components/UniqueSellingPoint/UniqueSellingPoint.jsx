@@ -4,8 +4,8 @@ import bannerImg from "./img.jpg";
 const UniqueSellingPoint = () => {
   return (
     <div className=" bg-orange-600 pt-20 mb-20">
-      <div className="  container mx-auto flex  bg-pink-300 items-center pt-20  pb-16">
-        <div className="mr-4 ">
+      <div className=" mx-auto flex flex-col md:flex-row bg-pink-300 items-center pt-20  pb-16">
+        <div className="mr-4 mb-4 md:mb-0 ">
           <img
             src={bannerImg}
             alt="Tooth brush and a paste laying on top of a green leaf"
