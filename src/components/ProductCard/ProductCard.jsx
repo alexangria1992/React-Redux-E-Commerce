@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ProductPrice from "../ProductPrice";
+import Price from "../Price";
 
 const ProductCard = ({ id, name, brand, imgUrl, price }) => (
   <Link
@@ -8,12 +8,7 @@ const ProductCard = ({ id, name, brand, imgUrl, price }) => (
     to={`/product/${id}`}
   >
     <div className="flex flex-1 flex-col justify-center mb-4">
-      <img
-        width="120"
-        src={`https://${imgUrl}`}
-        alt={name}
-        className="mx-auto "
-      />
+      <img width="120" src={imgUrl} alt={name} className="mx-auto " />
     </div>
     <div>
       <p className="text-yellow font-krona text-sm lowercase">
@@ -21,7 +16,7 @@ const ProductCard = ({ id, name, brand, imgUrl, price }) => (
         {name.replace(/^(.{12}[^\s]*).*/, "$1")}
       </p>
       <p className="mb-4"> {brand}</p>
-      <ProductPrice price={price} />
+      <Price price={price} />
     </div>
   </Link>
 );

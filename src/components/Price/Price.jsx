@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const ProductPrice = ({ price, isLarge }) => {
+const Price = ({ price, isLarge }) => {
   return (
     <div className="relative">
       <div className="absolute bg-light-grey h-10 rounded-full top-0 w-10 -z-1"></div>
@@ -12,4 +13,15 @@ const ProductPrice = ({ price, isLarge }) => {
   );
 };
 
-export default ProductPrice;
+export default Price;
+
+Price.propTypes = {
+  price: PropTypes.string.isRequired,
+  isLarge: PropTypes.bool,
+};
+
+Price.defaultProps = {
+  price: PropTypes.string.isRequired,
+
+  isLarge: false,
+};
