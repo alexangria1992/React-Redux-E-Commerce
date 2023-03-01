@@ -4,6 +4,7 @@ import { CATEGORIES } from "../../constants/categories";
 
 const CategoriesBar = ({ setFilter }) => {
   const [activeCategory, setActiveCategory] = useState(null);
+
   const setCategory = (e) => {
     const value = e.target.innerText;
     
