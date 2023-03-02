@@ -1,8 +1,11 @@
 import React from "react";
 import ProductCard from "../ProductCard";
 import Loader from "../Loader";
+import { useSearchState } from "../../state/search-context";
 
-const Products = ({ products }) => {
+const Products = () => {
+  const [{ products }] = useSearchState();
+
   return (
     <div className="flex flex-wrap justify-center">
       {products.length === 0 ? (

@@ -1,14 +1,29 @@
-import React, { createContext } from "react";
-import { initialSearchState } from "./search-state";
+import React, { createContext, useContext, useReducer } from "react";
 
-const searchStateContext = createContext("searchState");
+import { initialSearchState } from "./search-state";
+import { searchReducer } from "./search-reducer";
+
+const SearchStateContext = createContext("searchState");
 
 const SearchProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(searchReducer, {
+    ...initialSearchState,
+  });
+
   return (
-    <searchStateContext.Provider value={initialSearchState}>
+    <SearchStateContext.Provider value={[state, dispatch]}>
       {children}
-    </searchStateContext.Provider>
+    </SearchStateContext.Provider>
   );
 };
+
+const useSearchState = () => {
+  const context = useContext(SearchStateContext);
+  console.log(context);
+
+  return context;
+};
+
+export { useSearchState };
 
 export default SearchProvider;
