@@ -5,7 +5,7 @@ import Products from "../Products";
 import useSearch from "../../hooks/useSearch";
 
 const Search = () => {
-  const { products, setFilter } = useSearch();
+  const { setFilter } = useSearch();
 
   return (
     <div className="search">
@@ -18,7 +18,7 @@ const Search = () => {
       </div>
 
       <div className="results">
-        <Products products={products} />
+        <Products />
       </div>
     </div>
   );
