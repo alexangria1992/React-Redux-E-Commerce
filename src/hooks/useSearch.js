@@ -3,13 +3,13 @@ import { setProducts } from "../state/actionCreators";
 import axios from "axios";
 import { useSearchState } from "../state/search-context";
 // import { PRODUCT_TAGS } from "../constants/tags";
-const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
+const BASE_URL = "https://makeup-api.herokuapp.com/api/v1/products";
 
 //TODO "UI To-do list"
 // 1. When the user navigates to the product and then goes back,
 //pre-selected filters should be remembered
 
-//2. Sorting should have a seperate dropdown
+//2. Sorting should have a seperate dropdown -- DONE
 
 //3. create the tags 'dropdown" with checkboxes to be able to select more than one tag
 
@@ -17,9 +17,14 @@ const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
 const useSearch = () => {
   const [state, dispatch] = useSearchState();
 
-  const getProducts = (params) => {
+  const getProducts = () => {
     dispatch(setProducts([]));
     // console.log({ params });
+    const params = {
+      product_type: state.filters.product_type,
+      brand: state.filters.brand,
+    };
+
     axios
       .get(`${BASE_URL}.json`, {
         params,
@@ -32,20 +37,22 @@ const useSearch = () => {
   };
 
   // TODO: extend this function with setting the filter in the state
-  //TODO save filtered products to the state
-  const setFilter = (type, value) => {
-    const params = {
-      [type]: value,
-    };
-    // console.log({ type, value });
-    getProducts(params);
-  };
+  //TODO save filtered products to the state--save applied filters as well
+
+  // const setFilter = (type, value) => {
+  //   console.log("setFilter", { type, value });
+
+  //   const params = {
+  //     [type]: value === "all" ? null : value,
+  //   };
+  //   setFilterState({ type, value });
+  //   // console.log({ type, value });
+  //   getProducts(params);
+  // };
 
   useEffect(() => {
     getProducts();
-  }, []);
-
-  return { setFilter };
+  }, [state.filters]);
 };
 
 export default useSearch;

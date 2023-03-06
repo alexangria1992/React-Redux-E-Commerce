@@ -19,7 +19,7 @@ const SearchProvider = ({ children }) => {
 
 const useSearchState = () => {
   const context = useContext(SearchStateContext);
-  console.log(context);
+  // console.log(context);
 
   return context;
 };

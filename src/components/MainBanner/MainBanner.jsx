@@ -5,10 +5,10 @@ import ButtonLink from "../ButtonLink/ButtonLink";
 const MainBanner = () => {
   return (
     <div
-      className="container mx-auto flex flex-col-reverse md:flex-row  bg-lime-200 items-center mt-20 mb-10 md:mt-20
+      className="container mx-auto flex flex-col-reverse md:flex-row   items-center mt-20 mb-10 md:mt-20
     "
     >
-      <div className="bg-teal-200">
+      <div>
         <h1 className="font-krona text-3xl md:text-5xl mb-4 md:mb-10">
           The Makeup e-commerce project
         </h1>

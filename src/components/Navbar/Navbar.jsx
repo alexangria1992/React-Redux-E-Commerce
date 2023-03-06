@@ -7,12 +7,12 @@ import CartIcon from "../../Icons/CartIcon";
 
 const Navbar = () => {
   return (
-    <nav className=" container mx-auto flex font-krona bg-red-300 justify-between p-3">
+    <nav className=" container mx-auto flex font-krona  justify-between p-3">
       <BrandLink classes="text-yellow" />
-      <div className="flex bg-green-300 items-end ">
+      <div className="flex  items-end ">
         <NavLinks />
 
-        <div className="flex bg-purple-300">
+        <div className="flex ">
           <HeartIcon />
           <CartIcon />
 

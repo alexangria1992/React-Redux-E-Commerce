@@ -2,9 +2,9 @@ import React from "react";
 
 const BenefitsItem = ({ item }) => {
   return (
-    <div className="flex  bg-violet-300 flex-1">
+    <div className="flex   flex-1">
       <div className="relative  mr-4">
-        <div className="absolute bg-yellow h-10 rounded-full top-0 w-10 -z-1"></div>
+        <div className="absolute  h-10 rounded-full top-0 w-10 -z-1"></div>
 
         {item.title === "Products" && (
           <svg
