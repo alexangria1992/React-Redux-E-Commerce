@@ -3,7 +3,7 @@ export const initialSearchState = {
   filteredProducts: [],
   filters: {
     brand: null,
-    sort: null,
+    // sort: null,
     productType: null,
     minPrice: null,
     maxPrice: null,

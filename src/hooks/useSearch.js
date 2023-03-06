@@ -1,28 +1,26 @@
-import { useEffect } from "react";
-import { setProducts } from "../state/actionCreators";
+import { useEffect, useState } from "react";
 import axios from "axios";
+
 import { useSearchState } from "../state/search-context";
-// import { PRODUCT_TAGS } from "../constants/tags";
+import { setProducts } from "../state/actionCreators";
+
 const BASE_URL = "https://makeup-api.herokuapp.com/api/v1/products";
 
-//TODO "UI To-do list"
-// 1. When the user navigates to the product and then goes back,
-//pre-selected filters should be remembered
-
-//2. Sorting should have a seperate dropdown -- DONE
-
-//3. create the tags 'dropdown" with checkboxes to be able to select more than one tag
-
-//4.implement a pagination (along with the per page filter)
 const useSearch = () => {
   const [state, dispatch] = useSearchState();
+  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const getProducts = () => {
+    setIsLoading(true);
+    // setIsLoading(true);
     dispatch(setProducts([]));
-    // console.log({ params });
+
     const params = {
-      product_type: state.filters.product_type,
+      product_type: state.filters.productType,
       brand: state.filters.brand,
+      price_greater_than: state.filters.minPrice,
+      price_less_than: state.filters.maxPrice,
     };
 
     axios
@@ -31,28 +29,17 @@ const useSearch = () => {
       })
       .then(({ data }) => {
         dispatch(setProducts(data));
-        // console.log({ data });
-        // setProducts(data);
+        setIsLoading(false);
       });
   };
-
-  // TODO: extend this function with setting the filter in the state
-  //TODO save filtered products to the state--save applied filters as well
-
-  // const setFilter = (type, value) => {
-  //   console.log("setFilter", { type, value });
-
-  //   const params = {
-  //     [type]: value === "all" ? null : value,
-  //   };
-  //   setFilterState({ type, value });
-  //   // console.log({ type, value });
-  //   getProducts(params);
-  // };
 
   useEffect(() => {
     getProducts();
   }, [state.filters]);
+
+  return {
+    isLoading,
+  };
 };
 
 export default useSearch;

@@ -5,7 +5,7 @@ export const setProducts = (products) => ({
   payload: products,
 });
 
-export const setFilter = ({ type, value }) => ({
+export const setFilter = (name, value) => ({
   type: SET_FILTER,
-  payload: { type, value },
+  payload: { name, value },
 });

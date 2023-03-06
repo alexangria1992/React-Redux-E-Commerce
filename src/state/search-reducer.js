@@ -7,7 +7,7 @@ export const searchReducer = (state, { type, payload }) => {
     case SET_FILTER:
       return {
         ...state,
-        filters: { ...state.filters, [payload.type]: payload.value },
+        filters: { ...state.filters, [payload.name]: payload.value },
       };
     default:
       return state;
